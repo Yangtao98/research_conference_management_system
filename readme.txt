@@ -5,7 +5,7 @@ Install Python 3.10
 
 Assuming Visual Studio Code
 
-Navigate to csit314/ folder where requirement.txt resides
+Navigate to folder where requirement.txt resides
 
 Open cmd,and input
 "python3 -m venv env"
@@ -21,7 +21,7 @@ then input and enter
 without quotes to install imports to the environment folder
 
 to run the program
-"python touchgrass/manage.py runserver"
+"python main/manage.py runserver"
 without quotes to start the program
 
 ctrl click the url in the console to open the website in localhost
