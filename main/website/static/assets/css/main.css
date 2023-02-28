@@ -1,0 +1,229 @@
+/************************************************
+Navbar
+************************************************/
+/* Colors */
+:root {
+  --color-default: #212529;
+  --color-primary: #EF7000;
+  --color-secondary: #37373f;
+}
+
+
+.dropdown-menu-right { 
+  right: 0 !important; 
+  left: auto !important; 
+}
+
+.nav-left li:hover a{
+  color: black;
+  border-bottom:3px solid #EF7000 ;
+  margin-bottom: 0px;
+}
+
+.navbar li{
+  margin: 0 10px;
+}
+
+.nav-left li a{
+  margin-bottom: 3px;
+}
+
+.nav-left li.active a{
+  color: black;
+  border-bottom:3px solid #EF7000;
+  margin-bottom: 0px;
+}
+
+.nav-left a:hover:before,
+.nav-left li:hover>a:before,
+.nav-left .active:before {
+  visibility: visible;
+  width: 100%;
+}
+
+.nav-left a:hover,
+.nav-left .active,
+.nav-left .active:focus,
+.nav-left li:hover>a {
+  color: #000;
+}
+
+.header{
+  box-shadow: 0px 15px 10px -15px #111; 
+}
+
+.dropdown-description{
+  padding: 0 10%;
+}
+
+.dropdown-link{
+  display: block;
+  padding: 0 10%;
+  width: 100%;
+  clear: both;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-bottom:3px solid transparent ;
+  color: black;
+}
+
+.dropdown-link:hover{
+  margin-bottom: 0px;
+  color: black;
+  border-bottom:3px solid #EF7000 ;
+}
+
+
+
+/************************************************
+Login
+************************************************/
+
+
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+  height: 100%;
+  }
+}
+
+.forget_pass{
+  text-decoration: none;
+  margin-bottom: 3px;
+}
+
+.forget_pass:hover{
+  color: blue;
+  margin-bottom: 0px;
+  border-bottom:3px solid var(--color-primary);
+}
+
+.forget_pass:hover{
+  color: blue;
+  margin-bottom: 0px;
+  border-bottom:3px var(--color-primary);
+}
+
+.foot{
+  background-color: var(--color-primary);
+}
+
+.login-btn{
+  background-color: var(--color-primary);
+  color: white;
+  padding-left: 2.5rem; 
+  padding-right: 2.5rem;
+}
+
+.login-btn:hover{
+  background-color: #c75f05;
+  color: white;
+}
+
+.default-btn{
+  background-color: var(--color-primary);
+  color: white;
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
+
+.default-btn:hover{
+  background-color: #c75f05;
+  color: white;
+}
+
+
+/************************************************
+Admin
+************************************************/
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+  }
+
+  .no-deco{
+    text-decoration: none;
+    color: black;
+  }
+
+  .no-deco-edit{
+    text-decoration: none;
+    color: white;
+  }
+
+  .forms-view input{
+    width: 100%;
+  }
+
+  .forms-view select{
+    border-radius: 0;
+    border: 1px solid gray;
+  }
+
+
+/************************************************
+Reviewer
+************************************************/
+  .reply-btn{
+    border: 1px solid transparent;
+    background-color: transparent;
+    color:gray;
+    border-radius: 20px;
+  }
+  .reply-btn:hover{
+    color:black;
+    border:1px solid gray
+  }
+
+.targetDiv{
+    display: none;
+  }
+
+  .avatarStyle{
+    width: 40px;
+    height: 40px;
+  }
+
+  .pullrtbtn{
+    margin-left: 20px;
+    display: none;
+  }
+
+  .editinput{
+    display: none;
+  }
+  .pofixed{
+    position: fixed;
+    border: 1px solid black;
+    margin-left: 40px;
+    top: 20%;
+    border-radius: 10px;
+  }
+
+  #chkveg_multiSelect {
+    width: 100%;
+  }
+
+  #chkveg_itemList {
+    width: 80%;
+  }

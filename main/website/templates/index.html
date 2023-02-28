@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<style>
+    .h {
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    .body {
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+
+<header>
+    <div class="h">
+        <h3>
+            Work in Progress
+        </h3>
+        <h1>
+            Research Coneference Management System
+        </h1>
+
+        <h4>
+            Click the links below to go their respective home pages.
+        </h4>
+    </div>
+
+</header>
+
+<div class="body">
+
+    <body>
+        <ul>
+            <li><a style="color:black;" href="{% url 'admin-home' %}"> admin</a></li><br>
+            <li>
+                <a style="color:black;" href="{% url 'author-home' %} "> author</a></li><br>
+            <li>
+                <a style="color:black; " href="{% url 'cc-home' %} "> conference chair</a></li><br>
+            <li>
+                <a style=" color:black; " href="{% url 'reviewer-home' %} "> reviewer</a></li>
+        </ul>
+    </body>
+</div>
+
+</html>

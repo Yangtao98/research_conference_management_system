@@ -1,0 +1,83 @@
+users
+
+system admin
+authors
+reviewers
+conference chair
+
+every actor has login/logout (2 user stories)
+4 actors * 2 = 8 user stories
+
+user profiles = permissions = access rights
+4 types of profiles
+
+some examples
+user id
+password
+user profile (user type like fyp do u rmbr)
+
+
+SA = system admin
+UA = user account
+UP = user profile
+
+	          login UA | logout UP
+
+Create			 / | /
+Retrieve (search)	 / | /
+	View		 / | /
+Update			 / | /
+Delete			 X | X
+
+
+10 user stories so far for SA alone
+
+Author
+create, update, search, view, delete submissions, 
+login, logout
+
+17 user stories so far
+
+manual type authors into field or dropdown list from database
+allow authors to co author papers
+
+create, update, search, view, delete bids
+
+conference chair can toggle switch for manual/auto allocation
+
+create, update, search, view, delete allocation
+
+
+
+user story -> user case -> BCE and UML class -> seq -> 
+				   |
+wireframe			   v
+data persistence				  
+coding
+testing
+
+1 us -> 1 uc -> 1 bce -> 1 sq
+
+boundary class talks to actor
+
+entity class talks to database
+
+exception is login/logout (unless storing session ids)
+
+B for form validation
+C for business rules (like if policy start with certain numbers, 
+or mastercard/visa start with certain numbers, if invalid pass back to boundary)
+E for db validation
+
+
+
+
+
+
+
+
+
+
+
+
+

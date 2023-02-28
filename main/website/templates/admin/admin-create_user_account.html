@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Research Conference Management System</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logos/favicon.ico' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div style="margin-top: 0px;" class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-left me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-home' %}">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-system_admin' %}">System Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-author' %}">Author</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-reviewer' %}">Reviewer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-conference_chair' %}">Conference Chair</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin-miscellaneous_user' %}">Miscellaneous User</a>
+                            </li>
+                        </ul>
+
+
+                        <!-- ---------user account ------------------------- -->
+                        <ul class="navbar-nav mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                System Admin
+              </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <p class="dropdown-description">{{request.session.first_name}}</p>
+                                    <p class="dropdown-description">{{request.session.user_role}}</p>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-link" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                    </div>
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        </nav>
+        </div>
+    </header>
+
+
+    <!-- --------------------------------------- End Header ------------------------------------------- -->
+
+    <main style="overflow-x: hidden;" id="main">
+        <section class="vh-100" style="background-color: #f4f5f7;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-8 mb-4 mb-lg-0">
+
+                        <!-- -------------Change intem in action to post the update---------------- -->
+                        <form action="" method="POST">
+                            {% csrf_token %}{% if messages %} {% for message in messages %} {% if message.tags %}
+                            <script>
+                                alert("{{ message }}")
+                            </script> {% endif %} {% endfor %} {% endif %}
+                            <div class="card mb-3" style="border-radius: .5rem;">
+                                <div class="row g-0">
+                                    <div class="col-md-3 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+
+                                        <!-- -----------------Get id to return to profile page----------------------- -->
+                                        <a style="margin: 10px 0 0 10px;" class="no-deco-edit pull-left" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Back</a>
+                                        <br>
+                                        <br>
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+
+                                    </div>
+                                    <!-- --------Change the item inside input value to database item------------------------- -->
+                                    <div class="col-md-9">
+                                        <div class="card-body p-4">
+                                            <h6>Information</h6>
+                                            <hr class="mt-0 mb-4">
+                                            <div class="row pt-1 forms-view">
+                                                <div class="col-6 mb-3">
+                                                    <h6>First Name</h6>
+                                                    <input type="text" name="first_name" placeholder="" value="" required>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h6>Last Name</h6>
+                                                    <input type="text" name="last_name" placeholder="" value="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row pt-1 forms-view">
+                                                <div class="col-6 mb-3">
+                                                    <h6>Email</h6>
+                                                    <input type="text" name="email" placeholder="@touchgrass.com" value="" required>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h6>Password</h6>
+                                                    <input type="text" name="password" placeholder="" value="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row pt-1 forms-view">
+                                                <div class="col-6 mb-3">
+                                                    <h6>Role</h6>
+                                                    <select name="user_profile" class="form-select form-select-sm" aria-label="Default select example" placeholder="Role" id="r">
+                              <option selected disabled>Role</option>
+                              {% for item in userprofiles %}
+                              <option name="user_profile" value="{{item.profile_name}}">{{item.profile_name}}</option>
+                              {% endfor %}
+                            </select>
+                                                    <script>
+                                                        function check() {
+                                                            var d = document.getElementById("r");
+                                                            if (d.selectedIndex == 0) {
+                                                                alert("Please select a Role");
+                                                            }
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <br>
+
+
+
+                                            <!-- ----------Change the link with id to do deletion of user--------------- -->
+                                            <button class="btn btn-danger" type="reset">Clear</button>
+
+                                            <button class="btn default-btn pull-right" name="create" onmouseover="check()" type="submit">Create</button>
+                                        </div>
+                                    </div>
+                                </div>
+        </section>
+
+    </main>
+
+
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-3.2.1.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

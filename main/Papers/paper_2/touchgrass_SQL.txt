@@ -1,0 +1,42 @@
+touchgrass SQL
+
+SELECT * FROM jolenet$touchgrassdb.user_profile; 
+
+delete all records from table:
+DELETE FROM jolenet$touchgrassdb.user_account_author;
+DELETE FROM jolenet$touchgrassdb.user_account_conference_chair;
+DELETE FROM jolenet$touchgrassdb.user_account_reviewer;
+DELETE FROM jolenet$touchgrassdb.user_account_system_admin;
+
+DELETE FROM jolenet$touchgrassdb.user_account_author where first_name='2Bruce';
+
+select * from jolenet$touchgrassdb.user_account_author;
+
+
+
+DELETE DUPLICATED:
+delete from jolenet$touchgrassdb.user_account_system_admin
+where user_id NOT IN (
+SELECT * FROM (
+SELECT MAX(user_id) FROM jolenet$touchgrassdb.user_account_system_admin
+group by email
+) as s_alias
+);
+
+
+
+SYS ADMIN:
+simohayha@touchgrass.com 
+WhiteDeath 
+
+AUTHOR:
+josephmorgan@touchgrass.com
+iamOriginal
+
+REVIEWER:
+qinshihuang@touchgrass.com
+qinEmperor
+
+CC: 
+andy123@touchgrass.com
+iamAndy

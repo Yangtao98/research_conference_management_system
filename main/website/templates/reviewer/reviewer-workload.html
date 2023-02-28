@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Research Conference Management System</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logos/favicon.ico' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div style="margin-top: 0px;" class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-left me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{% url 'reviewer-home' %}">Paper</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'reviewer-bid' %}">My Bids</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'reviewer-review' %}">My Reviews</a>
+                            </li>
+                        </ul>
+
+
+                        <!-----------user account --------------------------->
+                        <ul class="navbar-nav mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Reviewer
+              </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <p class="dropdown-description">{{request.session.first_name}}</p>
+                                    <p class="dropdown-description">{{request.session.user_role}}</p>
+                                    <a class="dropdown-link" href="{% url 'reviewer-workload' %}">Max: {{currentWL}}</a>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-link" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- --------------------------------------- End Header ------------------------------------------- -->
+
+    <main style="overflow-x: hidden;" id="main">
+        <section class="vh-100" style="background-color: #f4f5f7;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+
+                        <!-- -------------Change intem in action to post the update---------------- -->
+                        <form action="" method="POST">
+                            {% csrf_token %}{% if messages %} {% for message in messages %} {% if message.tags %}
+                            <script>
+                                alert("{{ message }}")
+                            </script> {% endif %} {% endfor %} {% endif %}
+                            <div class="card mb-3" style="border-radius: .5rem;">
+                                <div class="row g-0">
+                                    <div class="col-md-3 gradient-custom text-center text-white d-flex align-items-center" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+
+                                        <!-- -----------------Get id to return to profile page----------------------- -->
+
+                                        <a style="margin:0 auto;" class="no-deco-edit" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Back</a>
+
+
+
+                                    </div>
+                                    <!-- --------Change the item inside input value to database item------------------------- -->
+                                    <div class="col-md-9">
+                                        <div class="card-body p-4">
+                                            <h6>Update Max Workload</h6>
+                                            <hr class="mt-0 mb-4">
+                                            <div class="row pt-1 forms-view">
+                                                <div class="col-12 mb-3">
+                                                    <h6>Max Workload:</h6>
+                                                    <input type="number" min="1" step="1" name="maxworkload" placeholder="{{currentWL}}" required>
+                                                </div>
+                                            </div>
+                                            <br>
+
+
+
+                                            <!-- ----------Change the link with id to do deletion of user--------------- -->
+                                            <button class="btn btn-danger" type="reset">Clear</button>
+
+                                            <button class="btn default-btn pull-right" name="update" type="submit">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+        </section>
+
+    </main>
+
+
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+<script>
+    // Wrap number input with a class
+    const inputNumber = $("input[type='number']");
+    inputNumber.wrap("<div class=\"quantity-number\"></div>");
+
+    // Add minus and plus button before and after number inputs
+    $('<button type="button" class="minus-button">-</button>').insertBefore("input[type='number']");
+    $('<button type="button" class="plus-button">+</button></div>').insertAfter("input[type='number']");
+
+    // Functions on each button
+    const minusButton = $(".minus-button");
+    const plusButton = $(".plus-button");
+
+    minusButton.each(function(index) {
+        $(this).on("click", function(evt) {
+            let inputNumber = $(evt.target).next("input[type='number']");
+            inputNumber[0].stepDown();
+            inputNumber.change();
+        })
+    });
+
+    plusButton.each(function(index) {
+        $(this).on("click", function(evt) {
+            let inputNumber = $(evt.target).prev("input[type='number']");
+            inputNumber[0].stepUp();
+            inputNumber.change();
+        })
+    });
+</script>
+
+</html>
